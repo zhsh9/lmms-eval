@@ -14,6 +14,7 @@ export HF_HOME="~/.cache/huggingface"
 PRETRAINED=Qwen/Qwen2.5-Omni-7B
 BATCH_SIZE=1
 OUTPUT_DIR=./results/qwen2_5_omni
+mkdir -p $OUTPUT_DIR
 
 accelerate launch --num_processes=8 --main_process_port=12346 -m lmms_eval \
     --model qwen2_5_omni \
