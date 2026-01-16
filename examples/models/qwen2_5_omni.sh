@@ -12,21 +12,22 @@ export HF_HOME="~/.cache/huggingface"
 #     --batch_size 1
 
 PRETRAINED=Qwen/Qwen2.5-Omni-7B
+BATCH_SIZE=1
 
 accelerate launch --num_processes=8 --main_process_port=12346 -m lmms_eval \
     --model qwen2_5_omni \
     --model_args=pretrained=$PRETRAINED,max_pixels=12845056,attn_implementation=flash_attention_2 \
     --tasks videomme \
-    --batch_size 1
+    --batch_size $BATCH_SIZE
 
 accelerate launch --num_processes=8 --main_process_port=12346 -m lmms_eval \
     --model qwen2_5_omni \
     --model_args=pretrained=$PRETRAINED,max_pixels=12845056,attn_implementation=flash_attention_2 \
     --tasks mlvu \
-    --batch_size 1
+    --batch_size $BATCH_SIZE
 
 accelerate launch --num_processes=8 --main_process_port=12346 -m lmms_eval \
     --model qwen2_5_omni \
     --model_args=pretrained=$PRETRAINED,max_pixels=12845056,attn_implementation=flash_attention_2 \
     --tasks mvbench \
-    --batch_size 1
+    --batch_size $BATCH_SIZE
