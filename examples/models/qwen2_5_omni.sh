@@ -20,19 +20,19 @@ accelerate launch --num_processes=8 --main_process_port=12346 -m lmms_eval \
     --model qwen2_5_omni \
     --model_args=pretrained=$PRETRAINED,attn_implementation=flash_attention_2 \
     --tasks videomme \
-    --log_samples --output_path $OUTPUT_DIR/videomme.jsonl \
+    --log_samples --output_path $OUTPUT_DIR/videomme \
     --batch_size $BATCH_SIZE
 
 accelerate launch --num_processes=8 --main_process_port=12346 -m lmms_eval \
     --model qwen2_5_omni \
     --model_args=pretrained=$PRETRAINED,attn_implementation=flash_attention_2 \
-    --tasks mlvu \
-    --log_samples --output_path $OUTPUT_DIR/mlvu.jsonl \
+    --tasks mlvu_test \
+    --log_samples --output_path $OUTPUT_DIR/mlvu_test \
     --batch_size $BATCH_SIZE
 
 accelerate launch --num_processes=8 --main_process_port=12346 -m lmms_eval \
     --model qwen2_5_omni \
     --model_args=pretrained=$PRETRAINED,attn_implementation=flash_attention_2 \
     --tasks mvbench \
-    --log_samples --output_path $OUTPUT_DIR/mvbench.jsonl \
+    --log_samples --output_path $OUTPUT_DIR/mvbench \
     --batch_size $BATCH_SIZE
